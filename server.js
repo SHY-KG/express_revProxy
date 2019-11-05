@@ -1,5 +1,5 @@
 import express from 'express';
-import modules from './proxy_gate';
+import modules from './rev_proxy';
 
 const app = express()
 
