@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const SETTING_URL = "ORIGIN API URL";
+const DEV_ORIGIN_URL = "DEVURL"
+const SETTING_URL = process.env.ORIGIN_URL || DEV_ORIGIN_URL;
 
 module.exports = async (req, res) => {
     const { url } = req;
@@ -8,7 +9,7 @@ module.exports = async (req, res) => {
     if (url === "/") {
         return res.json({
             ok: false,
-            error: "Check the ORIGIN API",
+            error: "Check the ORIGIN API.",
         });
     }
     const { data } = await axios.get(`${SETTING_URL}${url}`);
